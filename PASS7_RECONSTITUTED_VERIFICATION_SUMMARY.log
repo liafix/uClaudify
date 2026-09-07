@@ -1,0 +1,34 @@
+FinBridge PASS 7 Reconstituted Handoff Verification
+Source: final PASS 6 + preserved PASS 7 evidence + rebuilt candidate experience
+Original PASS 7 archive: unavailable; no byte-identical claim
+
+Legacy Java PASS 0 contract: PASS
+FinBridge Java legacy export: 1024 rows -> /tmp/finbridge-java-canonical-6738016263576593593.csv
+Legacy Java PASS 4 mapping/export: PASS
+PASS 4 Java -> Python -> storage golden path: PASS
+
+PASS 7 structural candidate-experience validation: PASS
+PASS 7 frontend candidate-experience contract: PASS
+...........................
+----------------------------------------------------------------------
+Ran 27 tests in 0.050s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.025s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.145s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.271s
+
+OK
+PASS 4 Java -> Python -> storage golden path: PASS
+PASS 5 MCP stdio JSON-RPC handshake + tools/list + tools/call: PASS
+PASS 7 RECONSTITUTED HANDOFF GATE: GREEN

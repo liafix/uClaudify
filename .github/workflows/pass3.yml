@@ -1,0 +1,41 @@
+name: pass3-storage-azure-boundary
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pass3-local-and-azurite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install candidate frontend dependencies
+        working-directory: apps/demo-web
+        run: npm install
+      - name: Install Azure runtime dependencies
+        run: python -m pip install -r functions/azure/requirements.txt
+      - name: Install and start Azurite
+        run: |
+          npm install --global azurite@3.35.0
+          mkdir -p /tmp/finbridge-azurite
+          azurite --silent --location /tmp/finbridge-azurite >/tmp/azurite.log 2>&1 &
+          sleep 3
+      - name: PASS 3 deterministic gate
+        run: ./scripts/pass3_gate.sh
+      - name: Real Azurite storage/restart smoke
+        env:
+          FINBRIDGE_STORAGE: UseDevelopmentStorage=true
+        run: PYTHONPATH=services/domain:services/storage:services/processing python scripts/pass3_azurite_smoke.py
+      - name: Candidate frontend production build
+        working-directory: apps/demo-web
+        run: npm run build

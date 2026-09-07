@@ -1,0 +1,64 @@
+POKRAČUJ V PROJEKTE FINBRIDGE CLOUD — UCLOUDIFY CANDIDATE DEMO.
+
+ODOVZDÁVAM TI ZIP: FinBridge_Cloud_uCloudify_Candidate_Demo_PASS7_RECONSTITUTED_HANDOFF.zip
+
+DÔLEŽITÝ PROVENANCE BOUNDARY:
+- Pôvodný PASS 7 bol GREEN a mal hash-verified network frontend build, ale jeho pôvodný ZIP už nie je dostupný.
+- Tento ZIP bol znovu zostavený z finálneho PASS 6 codebase + zachovaných PASS 7 evidence/review artefaktov a reimplementovanej candidate-experience vrstvy.
+- NIE JE deklarované, že je byte-for-byte identický s pôvodným PASS 7 frontend archívom.
+- Preto pred akýmkoľvek PASS 8 production claimom najprv sprav baseline re-validation tohto presného ZIP-u.
+
+FROZEN GOLDEN PATH, KTORÝ NESMIEŠ MENIŤ:
+- batch 2026-09-05-001
+- 1,024 input
+- 1,019 accepted
+- 3 DQ-01 duplicates
+- 2 DQ-02 invalid currencies
+- 5 quarantined
+- 0 unaccounted
+- 100% record accountability
+- opening €1,000,000.00
+- credits €125,400.00
+- debits €98,700.00
+- expected/calculated closing €1,026,700.00
+- difference €0.00
+- replay 0 new accepted / 0 duplicate imports / 0 additional quarantine
+- committed dataset count 1
+- final state READY_FOR_ANALYTICS
+
+ARCHITECTURE OWNERSHIP:
+- Python owns DQ-01..DQ-05, FIN-01..FIN-05, quarantine, reconciliation, idempotency, readiness.
+- Java is legacy mapping/export only; no finance/DQ judgement.
+- Azure/Azurite is storage/runtime boundary; local golden path must remain cloud-independent.
+- Terraform is infrastructure-only; no terraform apply/live-Azure claim unless actually executed later.
+- MCP has exactly six read-only tools: get_batch_status, get_data_quality_summary, list_batch_anomalies, trace_transaction, get_reconciliation_result, explain_quarantined_record.
+- AI only explains deterministic evidence and must not make validity decisions or mutate data.
+
+PASS 7 CANDIDATE ROUTES:
+- / Pipeline
+- /quality Quality
+- /operations AI Operations
+- /architecture Architecture
+- /candidate Candidate/uCloudify mapping
+
+TERAZ VYKONAJ PRESNE PASS 8:
+IMPLEMENTUJ CI + PRODUCTION HARDENING. NAJPRV baseline audit/re-validation presného ZIP-u, potom uzavri Python/Java/frontend/Terraform/MCP security a build gates. Zachovaj frozen golden path a všetky ownership boundaries. Neimplementuj PASS 9.
+
+MINIMÁLNE PASS 8 GATES:
+1. Python: lint/static/type gate podľa dostupného toolchainu, všetky existujúce testy, compileall, dependency/security audit bez falošných claimov.
+2. Java: compile/tests, mapping/export regression, Java -> Python -> storage smoke.
+3. Frontend: clean dependency install, contract, typecheck, production build, dependency audit; over presne päť candidate routes a noindex/synthetic disclaimer.
+4. Terraform: fmt -check, init -backend=false, validate s pinned providerom; žiadny terraform apply.
+5. MCP: 16/16 suite, stdio JSON-RPC smoke, official SDK v2 client smoke ak je network dostupný, presne 6 read-only tools, no arbitrary SQL/shell/mutation/live LLM fallback.
+6. Security: secret scan, forbidden-file/credential scan, no exposed keys/connection strings, dependency vulnerability gate s presným severity verdictom.
+7. Golden path regression: presne frozen čísla vyššie; žiadna zmena domain semantics.
+8. CI: jeden konzistentný GitHub Actions production-hardening workflow alebo jasne komponované workflows, ktoré fail-closed pokrývajú všetky vyššie gate-y.
+9. Evidence: vytvor PASS8_EVIDENCE.md, PASS8_REVIEW_GATE.md, finálny regression log, final ZIP + SHA-256.
+10. STOP na PASS 8 REVIEW GATE. PASS 9 nezačínaj.
+
+CLAIM DISCIPLINE:
+- Nevymýšľaj live Azure deployment, browser visual QA, uCloudify interné dáta ani produkčnú bankovú skúsenosť.
+- Ak external/network gate nemožno spustiť, označ ho PENDING/BLOCKED namiesto falošného PASS.
+- Ak baseline re-validation tohto reconstructed ZIP-u odhalí rozdiel oproti zachovanému PASS 7 evidence, oprav iba candidate-experience continuity a zdokumentuj to pred PASS 8 hardeningom.
+
+PO DOKONČENÍ MI DAJ finálny PASS 8 ZIP, SHA-256, evidence/review dokumenty, presné počty testov/gate výsledky a krátky ďalší copy-paste prompt pre PASS 9.

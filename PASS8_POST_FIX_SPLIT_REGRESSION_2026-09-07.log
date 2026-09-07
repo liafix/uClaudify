@@ -1,0 +1,39 @@
+FinBridge PASS 8 post-CI-continuity split regression
+UTC 2026-09-07T07:34:58Z
+== structural ==
+PASS 8 STRUCTURAL HARDENING VALIDATION: GREEN
+PASS: frozen Terraform provider pin and all six PASS 6 source hashes preserved
+PASS: exactly six read-only/closed-world MCP tools preserved
+PASS: five candidate routes + noindex + synthetic disclaimer preserved
+PASS: CI contains no deploy or terraform apply step
+== golden ==
+PASS 8 GOLDEN PATH REGRESSION: GREEN
+batch=2026-09-05-001
+input=1024 accepted=1019 dq01_duplicates=3 dq02_invalid_currency=2 quarantine=5 unaccounted=0
+opening=€1,000,000.00 credits=€125,400.00 debits=€98,700.00
+expected_closing=€1,026,700.00 calculated_closing=€1,026,700.00 difference=€0.00
+replay=0/0/0 committed_dataset_count=1 final_state=READY_FOR_ANALYTICS
+== java ==
+Legacy Java PASS 0 contract: PASS
+FinBridge Java legacy export: 1024 rows -> /tmp/finbridge-java-canonical-7497932721359164913.csv
+Legacy Java PASS 4 mapping/export: PASS
+PASS 4 Java -> Python -> storage golden path: PASS
+== mcp stdio ==
+PASS 5 MCP stdio JSON-RPC handshake + tools/list + tools/call: PASS
+== compileall ==
+compileall: PASS
+== frontend contract ==
+file:///mnt/data/finbridge_pass9_work/apps/demo-web/scripts/contract-check.mjs:17
+  if (!fs.existsSync(path.join(cwd, file))) throw new Error(`PASS 7 route/source missing: ${file}`);
+                                                  ^
+
+Error: PASS 7 route/source missing: app/page.tsx
+    at file:///mnt/data/finbridge_pass9_work/apps/demo-web/scripts/contract-check.mjs:17:51
+    at ModuleJob.run (node:internal/modules/esm/module_job:274:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:644:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5)
+
+Node.js v22.16.0
+== security source scan ==
+PASS 8 SECRET/CREDENTIAL SCAN: GREEN (193 files inspected)
+No private keys, credential files, API keys, tokens, connection strings or production credentials detected by the fail-closed repository scanner.

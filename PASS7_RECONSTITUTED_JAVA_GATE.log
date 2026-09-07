@@ -1,0 +1,4 @@
+Legacy Java PASS 0 contract: PASS
+FinBridge Java legacy export: 1024 rows -> /tmp/finbridge-java-canonical-6738016263576593593.csv
+Legacy Java PASS 4 mapping/export: PASS
+PASS 4 Java -> Python -> storage golden path: PASS

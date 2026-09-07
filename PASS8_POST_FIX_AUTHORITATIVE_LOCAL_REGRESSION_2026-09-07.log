@@ -1,0 +1,156 @@
+== PASS8 structural ==
+PASS 8 STRUCTURAL HARDENING VALIDATION: GREEN
+PASS: frozen Terraform provider pin and all six PASS 6 source hashes preserved
+PASS: exactly six read-only/closed-world MCP tools preserved
+PASS: five candidate routes + noindex + synthetic disclaimer preserved
+PASS: CI contains no deploy or terraform apply step
+== PASS8 prior contract continuity ==
+PASS: repository structure
+PASS: frozen scenario
+PASS: scope contract
+PASS: secret hygiene
+PASS: pass isolation
+PASS 0 structural/domain validation: PASS
+PASS 1 demo evidence exported: apps/demo-web/data/golden-path.json
+PASS: executable Python golden path
+PASS: frontend evidence derived from Python domain truth
+PASS: 1,024 -> 1,019 + 5 quarantine -> 0 unaccounted
+PASS: exact €0.00 reconciliation difference
+PASS: replay creates 0 new imports
+PASS 1 vertical-slice validation: PASS
+PASS: DQ-01..DQ-04 execute against untrusted raw records
+PASS: DQ-05 exact replay has zero new import effects
+PASS: changed payload under an existing batch id fails closed
+PASS: FIN-01..FIN-04 are explicit reusable invariant checks
+PASS: FIN-05 keeps one persisted dataset across replay
+PASS: PASS 1 golden candidate story remains byte-for-byte evidence compatible
+PASS 2 finance-domain hardening validation: PASS
+PASS: raw/processed/quarantine/audit storage ports are implemented
+PASS: storage-backed golden path is evidence-identical to PASS 1/2
+PASS: 1,024 raw / 1,019 processed / 5 quarantine / 1 commit persisted
+PASS: process restart preserves DQ-05 / FIN-05 exactly-one semantics
+PASS: Azure Function is a thin orchestration trigger boundary
+PASS: Azurite adapter + real-service smoke script are present
+PASS 3 storage + Azure-compatible boundary validation: PASS
+PASS: Java legacy transaction model + mapper + canonical exporter implemented
+PASS: Java preserves duplicate/currency anomalies instead of deciding DQ outcomes
+PASS: canonical CSV boundary is structurally consumed by Python processing
+PASS: Python remains sole owner of DQ/quarantine/reconciliation/readiness
+PASS: PASS 4 ownership boundary remains intact under later-pass regression
+PASS 4 structural ownership validation: PASS
+/mnt/data/finbridge_pass9_work/artifacts/pass5/ai-operations-evidence.json
+PASS: exactly six read-only MCP operations tools are frozen
+PASS: operations layer reads persisted evidence and does not own DQ/finance decisions
+PASS: controlled assistant emits explicit evidence_used and uses no live LLM
+PASS: arbitrary SQL/shell/mutation tools remain absent
+PASS: PASS 5 regression remains green inside later pass
+PASS 5 structural safety validation: PASS
+PASS 8 PRIOR PASS 0-5 CONTRACT REGRESSION: GREEN
+== Python aggregate ==
+test_candidate_safety_contract_is_explicit (test_contracts.FrozenContractTests.test_candidate_safety_contract_is_explicit) ... ok
+test_canonical_transaction_contract_is_frozen (test_contracts.FrozenContractTests.test_canonical_transaction_contract_is_frozen) ... ok
+test_financial_control_total_is_exact_decimal (test_contracts.FrozenContractTests.test_financial_control_total_is_exact_decimal) ... ok
+test_golden_state_order_is_frozen (test_contracts.FrozenContractTests.test_golden_state_order_is_frozen) ... ok
+test_rule_sets_are_complete (test_contracts.FrozenContractTests.test_rule_sets_are_complete) ... ok
+test_scenario_counts_are_exact_and_accounted (test_contracts.FrozenContractTests.test_scenario_counts_are_exact_and_accounted) ... ok
+test_final_state_is_ready_for_analytics (test_pass1_golden_path.Pass1GoldenPathTests.test_final_state_is_ready_for_analytics) ... ok
+test_fixture_has_exact_frozen_shape (test_pass1_golden_path.Pass1GoldenPathTests.test_fixture_has_exact_frozen_shape) ... ok
+test_golden_path_export_is_deterministic (test_pass1_golden_path.Pass1GoldenPathTests.test_golden_path_export_is_deterministic) ... ok
+test_quality_gate_blocks_with_exact_five_anomalies (test_pass1_golden_path.Pass1GoldenPathTests.test_quality_gate_blocks_with_exact_five_anomalies) ... ok
+test_quarantine_produces_exact_record_accountability (test_pass1_golden_path.Pass1GoldenPathTests.test_quarantine_produces_exact_record_accountability) ... ok
+test_reconciliation_is_exact_decimal_and_zero_difference (test_pass1_golden_path.Pass1GoldenPathTests.test_reconciliation_is_exact_decimal_and_zero_difference) ... ok
+test_replay_is_idempotent (test_pass1_golden_path.Pass1GoldenPathTests.test_replay_is_idempotent) ... ok
+test_state_machine_is_fail_closed (test_pass1_golden_path.Pass1GoldenPathTests.test_state_machine_is_fail_closed) ... ok
+test_dq_01_duplicate_transaction_id_is_blocked (test_pass2_data_quality.Pass2DataQualityTests.test_dq_01_duplicate_transaction_id_is_blocked) ... ok
+test_dq_02_invalid_currency_is_blocked (test_pass2_data_quality.Pass2DataQualityTests.test_dq_02_invalid_currency_is_blocked) ... ok
+test_dq_03_decimal_string_normalizes_exactly (test_pass2_data_quality.Pass2DataQualityTests.test_dq_03_decimal_string_normalizes_exactly) ... ok
+test_dq_03_non_decimal_compatible_amount_is_blocked (test_pass2_data_quality.Pass2DataQualityTests.test_dq_03_non_decimal_compatible_amount_is_blocked) ... ok
+test_dq_04_each_required_field_is_fail_closed (test_pass2_data_quality.Pass2DataQualityTests.test_dq_04_each_required_field_is_fail_closed) ... ok
+test_dq_05_exact_retry_has_zero_new_import_effects (test_pass2_data_quality.Pass2DataQualityTests.test_dq_05_exact_retry_has_zero_new_import_effects) ... ok
+test_dq_05_same_batch_id_with_changed_payload_fails_closed (test_pass2_data_quality.Pass2DataQualityTests.test_dq_05_same_batch_id_with_changed_payload_fails_closed) ... ok
+test_dq_05_same_payload_with_changed_outcome_counts_fails_closed (test_pass2_data_quality.Pass2DataQualityTests.test_dq_05_same_payload_with_changed_outcome_counts_fails_closed) ... ok
+test_fin_01_accepted_source_record_can_be_counted_only_once (test_pass2_financial_invariants.Pass2FinancialInvariantTests.test_fin_01_accepted_source_record_can_be_counted_only_once) ... ok
+test_fin_02_duplicate_transaction_id_never_enters_verified_dataset (test_pass2_financial_invariants.Pass2FinancialInvariantTests.test_fin_02_duplicate_transaction_id_never_enters_verified_dataset) ... ok
+test_fin_03_every_input_row_has_exactly_one_outcome (test_pass2_financial_invariants.Pass2FinancialInvariantTests.test_fin_03_every_input_row_has_exactly_one_outcome) ... ok
+test_fin_04_reconciliation_is_derived_only_from_accepted_records (test_pass2_financial_invariants.Pass2FinancialInvariantTests.test_fin_04_reconciliation_is_derived_only_from_accepted_records) ... ok
+test_fin_05_replay_keeps_exactly_one_persisted_dataset (test_pass2_financial_invariants.Pass2FinancialInvariantTests.test_fin_05_replay_keeps_exactly_one_persisted_dataset) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.094s
+
+OK
+test_azurite_factory_uses_four_required_blob_surfaces (test_azurite_adapter_contract.AzuriteAdapterContractTests.test_azurite_factory_uses_four_required_blob_surfaces) ... ok
+test_immutable_raw_evidence_rejects_changed_content (test_storage_contracts.StorageContractTests.test_immutable_raw_evidence_rejects_changed_content) ... ok
+test_raw_processed_quarantine_audit_round_trip (test_storage_contracts.StorageContractTests.test_raw_processed_quarantine_audit_round_trip) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.056s
+
+OK
+test_blob_trigger_handler_only_orchestrates_existing_raw_evidence (test_azure_function_boundary.AzureFunctionBoundaryTests.test_blob_trigger_handler_only_orchestrates_existing_raw_evidence) ... ok
+test_trigger_rejects_payload_that_does_not_match_persisted_raw_blob (test_azure_function_boundary.AzureFunctionBoundaryTests.test_trigger_rejects_payload_that_does_not_match_persisted_raw_blob) ... ok
+test_fresh_orchestrator_replay_keeps_one_persisted_dataset (test_pass3_processing_boundary.Pass3ProcessingBoundaryTests.test_fresh_orchestrator_replay_keeps_one_persisted_dataset) ... ok
+test_storage_backed_golden_path_is_evidence_identical (test_pass3_processing_boundary.Pass3ProcessingBoundaryTests.test_storage_backed_golden_path_is_evidence_identical) ... ok
+test_header_mismatch_fails_closed (test_pass4_legacy_import.Pass4LegacyImportTests.test_header_mismatch_fails_closed) ... ok
+test_structural_import_preserves_python_fixture_semantics (test_pass4_legacy_import.Pass4LegacyImportTests.test_structural_import_preserves_python_fixture_semantics) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.270s
+
+OK
+test_analytics_answer_does_not_claim_ai_made_decision (test_pass5_assistant.Pass5ControlledAssistantTests.test_analytics_answer_does_not_claim_ai_made_decision) ... ok
+test_transaction_explanation_names_dq_owner (test_pass5_assistant.Pass5ControlledAssistantTests.test_transaction_explanation_names_dq_owner) ... ok
+test_unknown_prompt_has_no_live_llm_fallback (test_pass5_assistant.Pass5ControlledAssistantTests.test_unknown_prompt_has_no_live_llm_fallback) ... ok
+test_why_blocked_uses_exact_three_evidence_tools_without_llm (test_pass5_assistant.Pass5ControlledAssistantTests.test_why_blocked_uses_exact_three_evidence_tools_without_llm) ... ok
+test_initialize_advertises_tools_only (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_initialize_advertises_tools_only) ... ok
+test_mutation_tool_is_not_exposed_and_fails_closed (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_mutation_tool_is_not_exposed_and_fails_closed) ... ok
+test_tools_call_returns_structured_persisted_evidence (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_tools_call_returns_structured_persisted_evidence) ... ok
+test_tools_list_is_exactly_six_read_only_tools (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_tools_list_is_exactly_six_read_only_tools) ... ok
+test_anomalies_include_exact_five_records (test_pass5_operations_tools.Pass5OperationsToolsTests.test_anomalies_include_exact_five_records) ... ok
+test_batch_status_is_ready_and_read_only (test_pass5_operations_tools.Pass5OperationsToolsTests.test_batch_status_is_ready_and_read_only) ... ok
+test_explain_quarantined_record_reports_python_owner (test_pass5_operations_tools.Pass5OperationsToolsTests.test_explain_quarantined_record_reports_python_owner) ... ok
+test_quality_summary_preserves_frozen_counts (test_pass5_operations_tools.Pass5OperationsToolsTests.test_quality_summary_preserves_frozen_counts) ... ok
+test_reconciliation_reads_exact_zero_difference (test_pass5_operations_tools.Pass5OperationsToolsTests.test_reconciliation_reads_exact_zero_difference) ... ok
+test_trace_duplicate_shows_raw_and_quarantine_occurrences (test_pass5_operations_tools.Pass5OperationsToolsTests.test_trace_duplicate_shows_raw_and_quarantine_occurrences) ... ok
+test_unknown_tool_fails_closed (test_pass5_operations_tools.Pass5OperationsToolsTests.test_unknown_tool_fails_closed) ... ok
+test_all_tools_leave_persisted_evidence_byte_semantics_unchanged (test_pass5_read_only_boundary.ReadOnlyBoundaryTests.test_all_tools_leave_persisted_evidence_byte_semantics_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.523s
+
+OK
+== Java + Java->Python->storage ==
+Legacy Java PASS 0 contract: PASS
+FinBridge Java legacy export: 1024 rows -> /tmp/finbridge-java-canonical-6992341017628168234.csv
+Legacy Java PASS 4 mapping/export: PASS
+PASS 4 Java -> Python -> storage golden path: PASS
+== MCP stdio ==
+PASS 5 MCP stdio JSON-RPC handshake + tools/list + tools/call: PASS
+== Python compileall ==
+compileall: PASS
+== Frontend source contract ==
+PASS 7 frontend candidate-experience contract: PASS
+== Frontend local fallback typecheck ==
+Frontend dependencies unavailable; using PASS 1 fallback declaration check.
+PASS 7 frontend candidate-experience contract: PASS
+== Security source scan ==
+PASS 8 SECRET/CREDENTIAL SCAN: GREEN (194 files inspected)
+No private keys, credential files, API keys, tokens, connection strings or production credentials detected by the fail-closed repository scanner.
+== Golden path ==
+PASS 8 GOLDEN PATH REGRESSION: GREEN
+batch=2026-09-05-001
+input=1024 accepted=1019 dq01_duplicates=3 dq02_invalid_currency=2 quarantine=5 unaccounted=0
+opening=€1,000,000.00 credits=€125,400.00 debits=€98,700.00
+expected_closing=€1,026,700.00 calculated_closing=€1,026,700.00 difference=€0.00
+replay=0/0/0 committed_dataset_count=1 final_state=READY_FOR_ANALYTICS
+POST_FIX_LOCAL_REGRESSION: GREEN
+
+== Exact summary ==
+SUMMARY: Python 52/52 PASS (27 domain + 3 storage + 6 processing/import + 16 MCP)
+SUMMARY: Java 2/2 executable contract/mapping suites PASS + Java->Python->storage PASS
+SUMMARY: MCP stdio JSON-RPC smoke PASS
+SUMMARY: compileall PASS
+SUMMARY: frontend source contract + dependency-unavailable fallback contract PASS
+SUMMARY: golden path PASS
+SUMMARY: current_pass=8
+SUMMARY: PASS 9 implementation NOT STARTED

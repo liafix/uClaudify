@@ -1,0 +1,10 @@
+# Optional cloud-mode example. The local/Azurite candidate demo requires none of these values.
+project_name         = "finbridge"
+environment          = "candidate"
+location             = "westeurope"
+storage_account_name = "finbridgecandidate01"
+function_app_name    = "finbridge-candidate-fn"
+
+tags = {
+  owner = "candidate"
+}

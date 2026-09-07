@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "project": "FinBridge Cloud",
+  "purpose": "Independent synthetic candidate demonstration for the uCloudify Junior Software Developer application",
+  "synthetic_only": true,
+  "candidate_disclaimer": "AlpineBank is fictional. No uCloudify client data, internal repositories, proprietary architecture, production credentials, or confidential processes are represented or used.",
+  "scenario": {
+    "batch_id": "2026-09-05-001",
+    "source_system": "AlpineBank Legacy Finance",
+    "input_records": 1024,
+    "accepted_records": 1019,
+    "duplicate_records": 3,
+    "invalid_currency_records": 2,
+    "quarantined_records": 5,
+    "unaccounted_records": 0,
+    "opening_balance_eur": "1000000.00",
+    "credits_eur": "125400.00",
+    "debits_eur": "98700.00",
+    "expected_closing_balance_eur": "1026700.00"
+  },
+  "canonical_transaction_fields": [
+    "transaction_id",
+    "account_id",
+    "booking_date",
+    "amount",
+    "currency",
+    "direction",
+    "counterparty",
+    "source_system"
+  ],
+  "quality_rules": {
+    "DQ-01": "transaction_id must be unique within a batch",
+    "DQ-02": "currency must be an allowed ISO-style currency code",
+    "DQ-03": "amount must be a valid Decimal-compatible monetary value",
+    "DQ-04": "required canonical fields must not be empty",
+    "DQ-05": "retrying the same batch must not create a second import"
+  },
+  "financial_invariants": {
+    "FIN-01": "every accepted record is counted exactly once",
+    "FIN-02": "duplicate input never enters the verified dataset",
+    "FIN-03": "every input record has an explicit accepted or quarantined outcome",
+    "FIN-04": "reconciliation is derived only from accepted records",
+    "FIN-05": "replaying the same batch creates no second dataset"
+  },
+  "golden_states": [
+    "RECEIVED",
+    "INGESTION_PASS",
+    "SCHEMA_PASS",
+    "NORMALIZATION_PASS",
+    "QUALITY_BLOCKED",
+    "QUARANTINED",
+    "RECONCILED",
+    "IDEMPOTENCY_PASS",
+    "READY_FOR_ANALYTICS"
+  ],
+  "technology_ownership": {
+    "python": "primary ingestion, validation, transformation, reconciliation and future MCP domain logic",
+    "java": "legacy source adapter only",
+    "azure": "future cloud execution/storage boundary; local deterministic mode remains mandatory",
+    "terraform": "future reproducible Azure infrastructure definition",
+    "frontend": "candidate presentation only; not the source of domain truth",
+    "ai": "future explanation layer over controlled evidence; never quality/reconciliation authority"
+  },
+  "prohibited_scope": [
+    "real bank/customer data",
+    "uCloudify proprietary data or code",
+    "authentication/user management",
+    "live LLM dependency for the golden path",
+    "arbitrary SQL tool access",
+    "arbitrary shell execution from AI",
+    "Kubernetes/Kafka/Databricks/Snowflake in MVP",
+    "C# or Scala in MVP"
+  ]
+}

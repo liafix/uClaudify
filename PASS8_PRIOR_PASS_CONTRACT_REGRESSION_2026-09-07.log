@@ -1,0 +1,46 @@
+=== PASS0 VALIDATE ===
+PASS: repository structure
+PASS: frozen scenario
+PASS: scope contract
+PASS: secret hygiene
+PASS: pass isolation
+PASS 0 structural/domain validation: PASS
+=== PASS1 EXPORT+VALIDATE ===
+PASS 1 demo evidence exported: apps/demo-web/data/golden-path.json
+PASS: executable Python golden path
+PASS: frontend evidence derived from Python domain truth
+PASS: 1,024 -> 1,019 + 5 quarantine -> 0 unaccounted
+PASS: exact €0.00 reconciliation difference
+PASS: replay creates 0 new imports
+PASS 1 vertical-slice validation: PASS
+=== PASS2 VALIDATE ===
+PASS: DQ-01..DQ-04 execute against untrusted raw records
+PASS: DQ-05 exact replay has zero new import effects
+PASS: changed payload under an existing batch id fails closed
+PASS: FIN-01..FIN-04 are explicit reusable invariant checks
+PASS: FIN-05 keeps one persisted dataset across replay
+PASS: PASS 1 golden candidate story remains byte-for-byte evidence compatible
+PASS 2 finance-domain hardening validation: PASS
+=== PASS3 VALIDATE ===
+PASS: raw/processed/quarantine/audit storage ports are implemented
+PASS: storage-backed golden path is evidence-identical to PASS 1/2
+PASS: 1,024 raw / 1,019 processed / 5 quarantine / 1 commit persisted
+PASS: process restart preserves DQ-05 / FIN-05 exactly-one semantics
+PASS: Azure Function is a thin orchestration trigger boundary
+PASS: Azurite adapter + real-service smoke script are present
+PASS 3 storage + Azure-compatible boundary validation: PASS
+=== PASS4 VALIDATE ===
+PASS: Java legacy transaction model + mapper + canonical exporter implemented
+PASS: Java preserves duplicate/currency anomalies instead of deciding DQ outcomes
+PASS: canonical CSV boundary is structurally consumed by Python processing
+PASS: Python remains sole owner of DQ/quarantine/reconciliation/readiness
+PASS: PASS 4 ownership boundary remains intact under later-pass regression
+PASS 4 structural ownership validation: PASS
+=== PASS5 EXPORT+VALIDATE ===
+/mnt/data/finbridge_pass8_work/artifacts/pass5/ai-operations-evidence.json
+PASS: exactly six read-only MCP operations tools are frozen
+PASS: operations layer reads persisted evidence and does not own DQ/finance decisions
+PASS: controlled assistant emits explicit evidence_used and uses no live LLM
+PASS: arbitrary SQL/shell/mutation tools remain absent
+PASS: PASS 5 regression remains green inside later pass
+PASS 5 structural safety validation: PASS

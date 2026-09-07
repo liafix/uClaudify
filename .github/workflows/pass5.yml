@@ -1,0 +1,43 @@
+name: pass5-mcp-operations
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pass5-mcp-read-only:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install candidate frontend dependencies
+        working-directory: apps/demo-web
+        run: npm install
+      - name: Install Azure + official MCP SDK dependencies
+        run: |
+          python -m pip install -r functions/azure/requirements.txt
+          python -m pip install "mcp>=2,<3"
+      - name: Install and start Azurite
+        run: |
+          npm install --global azurite@3.37.0
+          mkdir -p /tmp/finbridge-azurite
+          azurite --silent --location /tmp/finbridge-azurite >/tmp/azurite.log 2>&1 &
+          sleep 3
+      - name: PASS 5 deterministic gate
+        run: ./scripts/pass5_gate.sh
+      - name: Official MCP Python SDK v2 smoke
+        env:
+          PYTHONPATH: services/domain:services/storage:services/processing:services/mcp
+        run: python scripts/pass5_official_sdk_smoke.py
+      - name: Candidate frontend production build
+        working-directory: apps/demo-web
+        run: npm run build

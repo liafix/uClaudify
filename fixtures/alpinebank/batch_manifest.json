@@ -1,0 +1,28 @@
+{
+  "fixture_version": "1.0.0",
+  "batch_id": "2026-09-05-001",
+  "source_system": "AlpineBank Legacy Finance",
+  "synthetic": true,
+  "records": {
+    "input": 1024,
+    "accepted": 1019,
+    "duplicates": 3,
+    "invalid_currency": 2,
+    "quarantined": 5,
+    "unaccounted": 0
+  },
+  "control_totals": {
+    "currency": "EUR",
+    "opening_balance": "1000000.00",
+    "credits": "125400.00",
+    "debits": "98700.00",
+    "expected_closing_balance": "1026700.00"
+  },
+  "known_anomaly_examples": [
+    {"transaction_id": "TX-00482", "rule": "DQ-01", "reason": "DUPLICATE_TRANSACTION"},
+    {"transaction_id": "TX-00791", "rule": "DQ-01", "reason": "DUPLICATE_TRANSACTION"},
+    {"transaction_id": "TX-00902", "rule": "DQ-01", "reason": "DUPLICATE_TRANSACTION"},
+    {"transaction_id": "TX-01011", "rule": "DQ-02", "reason": "INVALID_CURRENCY:EUX"},
+    {"transaction_id": "TX-01012", "rule": "DQ-02", "reason": "INVALID_CURRENCY:EURO"}
+  ]
+}

@@ -1,0 +1,46 @@
+name: pass4-java-legacy-adapter
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pass4-java-python-azurite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install candidate frontend dependencies
+        working-directory: apps/demo-web
+        run: npm install
+      - name: Install Azure runtime dependencies
+        run: python -m pip install -r functions/azure/requirements.txt
+      - name: Install and start Azurite
+        run: |
+          npm install --global azurite@3.37.0
+          mkdir -p /tmp/finbridge-azurite
+          azurite --silent --location /tmp/finbridge-azurite >/tmp/azurite.log 2>&1 &
+          sleep 3
+      - name: PASS 4 deterministic gate
+        run: ./scripts/pass4_gate.sh
+      - name: Export Java canonical batch
+        run: |
+          mkdir -p /tmp/java-classes
+          javac -d /tmp/java-classes $(find adapters/legacy-java/src/main/java -name '*.java' -type f | sort)
+          java -cp /tmp/java-classes com.finbridge.legacy.LegacyAdapterApp /tmp/java-canonical.csv
+      - name: Real Java -> Python -> Azurite smoke
+        env:
+          FINBRIDGE_STORAGE: UseDevelopmentStorage=true
+        run: PYTHONPATH=services/domain:services/storage:services/processing python scripts/pass4_azurite_smoke.py /tmp/java-canonical.csv
+      - name: Candidate frontend production build
+        working-directory: apps/demo-web
+        run: npm run build

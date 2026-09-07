@@ -1,0 +1,25 @@
+PASS 7 structural candidate-experience validation: PASS
+PASS 7 frontend candidate-experience contract: PASS
+...........................
+----------------------------------------------------------------------
+Ran 27 tests in 0.050s
+
+OK
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.025s
+
+OK
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.145s
+
+OK
+................
+----------------------------------------------------------------------
+Ran 16 tests in 0.271s
+
+OK
+PASS 4 Java -> Python -> storage golden path: PASS
+PASS 5 MCP stdio JSON-RPC handshake + tools/list + tools/call: PASS
+PASS 7 RECONSTITUTED HANDOFF GATE: GREEN

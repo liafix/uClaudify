@@ -1,0 +1,21 @@
+test_analytics_answer_does_not_claim_ai_made_decision (test_pass5_assistant.Pass5ControlledAssistantTests.test_analytics_answer_does_not_claim_ai_made_decision) ... ok
+test_transaction_explanation_names_dq_owner (test_pass5_assistant.Pass5ControlledAssistantTests.test_transaction_explanation_names_dq_owner) ... ok
+test_unknown_prompt_has_no_live_llm_fallback (test_pass5_assistant.Pass5ControlledAssistantTests.test_unknown_prompt_has_no_live_llm_fallback) ... ok
+test_why_blocked_uses_exact_three_evidence_tools_without_llm (test_pass5_assistant.Pass5ControlledAssistantTests.test_why_blocked_uses_exact_three_evidence_tools_without_llm) ... ok
+test_initialize_advertises_tools_only (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_initialize_advertises_tools_only) ... ok
+test_mutation_tool_is_not_exposed_and_fails_closed (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_mutation_tool_is_not_exposed_and_fails_closed) ... ok
+test_tools_call_returns_structured_persisted_evidence (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_tools_call_returns_structured_persisted_evidence) ... ok
+test_tools_list_is_exactly_six_read_only_tools (test_pass5_mcp_protocol.Pass5McpProtocolTests.test_tools_list_is_exactly_six_read_only_tools) ... ok
+test_anomalies_include_exact_five_records (test_pass5_operations_tools.Pass5OperationsToolsTests.test_anomalies_include_exact_five_records) ... ok
+test_batch_status_is_ready_and_read_only (test_pass5_operations_tools.Pass5OperationsToolsTests.test_batch_status_is_ready_and_read_only) ... ok
+test_explain_quarantined_record_reports_python_owner (test_pass5_operations_tools.Pass5OperationsToolsTests.test_explain_quarantined_record_reports_python_owner) ... ok
+test_quality_summary_preserves_frozen_counts (test_pass5_operations_tools.Pass5OperationsToolsTests.test_quality_summary_preserves_frozen_counts) ... ok
+test_reconciliation_reads_exact_zero_difference (test_pass5_operations_tools.Pass5OperationsToolsTests.test_reconciliation_reads_exact_zero_difference) ... ok
+test_trace_duplicate_shows_raw_and_quarantine_occurrences (test_pass5_operations_tools.Pass5OperationsToolsTests.test_trace_duplicate_shows_raw_and_quarantine_occurrences) ... ok
+test_unknown_tool_fails_closed (test_pass5_operations_tools.Pass5OperationsToolsTests.test_unknown_tool_fails_closed) ... ok
+test_all_tools_leave_persisted_evidence_byte_semantics_unchanged (test_pass5_read_only_boundary.ReadOnlyBoundaryTests.test_all_tools_leave_persisted_evidence_byte_semantics_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 1.065s
+
+OK

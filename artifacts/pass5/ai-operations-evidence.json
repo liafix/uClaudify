@@ -1,0 +1,393 @@
+{
+  "batch_id": "2026-09-05-001",
+  "mcp_tools": [
+    {
+      "description": "Read persisted state history and final batch status. Does not mutate processing state.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "batch_id"
+        ],
+        "type": "object"
+      },
+      "name": "get_batch_status"
+    },
+    {
+      "description": "Read accepted/anomaly/quarantine/accountability counts from persisted evidence.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "batch_id"
+        ],
+        "type": "object"
+      },
+      "name": "get_data_quality_summary"
+    },
+    {
+      "description": "List persisted quarantine issues for a batch with rule and source-line evidence.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "batch_id"
+        ],
+        "type": "object"
+      },
+      "name": "list_batch_anomalies"
+    },
+    {
+      "description": "Trace all raw/accepted/quarantined occurrences of a transaction id in a persisted batch.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "batch_id",
+          "transaction_id"
+        ],
+        "type": "object"
+      },
+      "name": "trace_transaction"
+    },
+    {
+      "description": "Read persisted reconciliation evidence including the exact difference in EUR.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "batch_id"
+        ],
+        "type": "object"
+      },
+      "name": "get_reconciliation_result"
+    },
+    {
+      "description": "Read the deterministic DQ rule/reason and raw record evidence for one quarantined row.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "batch_id": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "batch_id",
+          "transaction_id"
+        ],
+        "type": "object"
+      },
+      "name": "explain_quarantined_record"
+    }
+  ],
+  "questions": [
+    {
+      "answer": "Batch 2026-09-05-001 was initially blocked by deterministic data-quality rules: 3 duplicate records and 2 invalid-currency records were quarantined. 1019 records were accepted, 5 were quarantined, and reconciliation later completed with an exact EUR difference of 0.00.",
+      "deterministic": true,
+      "evidence": [
+        {
+          "accepted_records": 1019,
+          "anomaly_records": 5,
+          "batch_id": "2026-09-05-001",
+          "initial_gate": "QUALITY_BLOCKED",
+          "input_records": 1024,
+          "issues_by_rule": {
+            "DQ-01": 3,
+            "DQ-02": 2
+          },
+          "quarantined_records": 5,
+          "read_only": true,
+          "record_accountability_percent": "100.00",
+          "unaccounted_records": 0
+        },
+        {
+          "anomalies": [
+            {
+              "issue": {
+                "reason": "DUPLICATE_TRANSACTION",
+                "rule": "DQ-01",
+                "source_line": 1021,
+                "transaction_id": "TX-00482"
+              },
+              "record": {
+                "account_id": "ACC-007",
+                "amount": "200.00",
+                "booking_date": "2026-09-05",
+                "counterparty": "Synthetic Counterparty 0482",
+                "currency": "EUR",
+                "direction": "CREDIT",
+                "source_line": 1021,
+                "source_system": "AlpineBank Legacy Finance",
+                "transaction_id": "TX-00482"
+              }
+            },
+            {
+              "issue": {
+                "reason": "DUPLICATE_TRANSACTION",
+                "rule": "DQ-01",
+                "source_line": 1022,
+                "transaction_id": "TX-00791"
+              },
+              "record": {
+                "account_id": "ACC-010",
+                "amount": "150.00",
+                "booking_date": "2026-09-05",
+                "counterparty": "Synthetic Counterparty 0791",
+                "currency": "EUR",
+                "direction": "DEBIT",
+                "source_line": 1022,
+                "source_system": "AlpineBank Legacy Finance",
+                "transaction_id": "TX-00791"
+              }
+            },
+            {
+              "issue": {
+                "reason": "DUPLICATE_TRANSACTION",
+                "rule": "DQ-01",
+                "source_line": 1023,
+                "transaction_id": "TX-00902"
+              },
+              "record": {
+                "account_id": "ACC-002",
+                "amount": "150.00",
+                "booking_date": "2026-09-05",
+                "counterparty": "Synthetic Counterparty 0902",
+                "currency": "EUR",
+                "direction": "DEBIT",
+                "source_line": 1023,
+                "source_system": "AlpineBank Legacy Finance",
+                "transaction_id": "TX-00902"
+              }
+            },
+            {
+              "issue": {
+                "reason": "INVALID_CURRENCY:EUX",
+                "rule": "DQ-02",
+                "source_line": 1024,
+                "transaction_id": "TX-01011"
+              },
+              "record": {
+                "account_id": "ACC-011",
+                "amount": "10.00",
+                "booking_date": "2026-09-05",
+                "counterparty": "Synthetic Invalid Currency A",
+                "currency": "EUX",
+                "direction": "CREDIT",
+                "source_line": 1024,
+                "source_system": "AlpineBank Legacy Finance",
+                "transaction_id": "TX-01011"
+              }
+            },
+            {
+              "issue": {
+                "reason": "INVALID_CURRENCY:EURO",
+                "rule": "DQ-02",
+                "source_line": 1025,
+                "transaction_id": "TX-01012"
+              },
+              "record": {
+                "account_id": "ACC-012",
+                "amount": "20.00",
+                "booking_date": "2026-09-05",
+                "counterparty": "Synthetic Invalid Currency B",
+                "currency": "EURO",
+                "direction": "DEBIT",
+                "source_line": 1025,
+                "source_system": "AlpineBank Legacy Finance",
+                "transaction_id": "TX-01012"
+              }
+            }
+          ],
+          "batch_id": "2026-09-05-001",
+          "count": 5,
+          "read_only": true
+        },
+        {
+          "batch_id": "2026-09-05-001",
+          "calculated_closing_balance_eur": "1026700.00",
+          "credits_eur": "125400.00",
+          "debits_eur": "98700.00",
+          "difference_eur": "0.00",
+          "expected_closing_balance_eur": "1026700.00",
+          "opening_balance_eur": "1000000.00",
+          "read_only": true,
+          "reconciled": true
+        }
+      ],
+      "evidence_used": [
+        "get_data_quality_summary",
+        "list_batch_anomalies",
+        "get_reconciliation_result"
+      ],
+      "live_llm_used": false,
+      "question": "Why was this batch initially blocked?"
+    },
+    {
+      "answer": "Yes. Persisted evidence reports state READY_FOR_ANALYTICS, 0 unaccounted records, and reconciliation difference 0.00 EUR. The assistant did not make the finance decision; it only summarized deterministic pipeline evidence.",
+      "deterministic": true,
+      "evidence": [
+        {
+          "batch_id": "2026-09-05-001",
+          "committed_dataset": true,
+          "committed_dataset_count": 1,
+          "current_state": "READY_FOR_ANALYTICS",
+          "persisted_event_count": 6,
+          "read_only": true,
+          "state_history": [
+            "RECEIVED",
+            "QUALITY_BLOCKED",
+            "QUARANTINED",
+            "RECONCILED",
+            "IDEMPOTENCY_PASS",
+            "READY_FOR_ANALYTICS"
+          ]
+        },
+        {
+          "accepted_records": 1019,
+          "anomaly_records": 5,
+          "batch_id": "2026-09-05-001",
+          "initial_gate": "QUALITY_BLOCKED",
+          "input_records": 1024,
+          "issues_by_rule": {
+            "DQ-01": 3,
+            "DQ-02": 2
+          },
+          "quarantined_records": 5,
+          "read_only": true,
+          "record_accountability_percent": "100.00",
+          "unaccounted_records": 0
+        },
+        {
+          "batch_id": "2026-09-05-001",
+          "calculated_closing_balance_eur": "1026700.00",
+          "credits_eur": "125400.00",
+          "debits_eur": "98700.00",
+          "difference_eur": "0.00",
+          "expected_closing_balance_eur": "1026700.00",
+          "opening_balance_eur": "1000000.00",
+          "read_only": true,
+          "reconciled": true
+        }
+      ],
+      "evidence_used": [
+        "get_batch_status",
+        "get_data_quality_summary",
+        "get_reconciliation_result"
+      ],
+      "live_llm_used": false,
+      "question": "Is this batch safe for analytics?"
+    },
+    {
+      "answer": "TX-01011 was quarantined by DQ-02 because INVALID_CURRENCY:EUX. The decision came from the Python deterministic DQ engine, not from AI.",
+      "deterministic": true,
+      "evidence": [
+        {
+          "accepted_occurrences": [],
+          "batch_id": "2026-09-05-001",
+          "issues": [
+            {
+              "reason": "INVALID_CURRENCY:EUX",
+              "rule": "DQ-02",
+              "source_line": 1024,
+              "transaction_id": "TX-01011"
+            }
+          ],
+          "outcome": "QUARANTINED",
+          "quarantined_occurrences": [
+            {
+              "account_id": "ACC-011",
+              "amount": "10.00",
+              "booking_date": "2026-09-05",
+              "counterparty": "Synthetic Invalid Currency A",
+              "currency": "EUX",
+              "direction": "CREDIT",
+              "source_line": 1024,
+              "source_system": "AlpineBank Legacy Finance",
+              "transaction_id": "TX-01011"
+            }
+          ],
+          "raw_occurrences": [
+            {
+              "account_id": "ACC-011",
+              "amount": "10.00",
+              "booking_date": "2026-09-05",
+              "counterparty": "Synthetic Invalid Currency A",
+              "currency": "EUX",
+              "direction": "CREDIT",
+              "source_line": 1024,
+              "source_system": "AlpineBank Legacy Finance",
+              "transaction_id": "TX-01011"
+            }
+          ],
+          "read_only": true,
+          "transaction_id": "TX-01011"
+        },
+        {
+          "ai_decision": false,
+          "batch_id": "2026-09-05-001",
+          "decision_owner": "Python deterministic data-quality engine",
+          "explanation": [
+            {
+              "reason": "INVALID_CURRENCY:EUX",
+              "record": {
+                "account_id": "ACC-011",
+                "amount": "10.00",
+                "booking_date": "2026-09-05",
+                "counterparty": "Synthetic Invalid Currency A",
+                "currency": "EUX",
+                "direction": "CREDIT",
+                "source_line": 1024,
+                "source_system": "AlpineBank Legacy Finance",
+                "transaction_id": "TX-01011"
+              },
+              "rule": "DQ-02",
+              "source_line": 1024
+            }
+          ],
+          "read_only": true,
+          "transaction_id": "TX-01011"
+        }
+      ],
+      "evidence_used": [
+        "trace_transaction",
+        "explain_quarantined_record"
+      ],
+      "live_llm_used": false,
+      "question": "What happened to transaction TX-01011?"
+    }
+  ],
+  "safety": {
+    "ai_is_finance_decision_owner": false,
+    "arbitrary_shell": false,
+    "arbitrary_sql": false,
+    "live_llm_dependency": false,
+    "read_only": true
+  },
+  "synthetic": true
+}

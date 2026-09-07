@@ -1,0 +1,29 @@
+name: pass2-finance-domain-hardening
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  finance-domain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install frontend dependencies
+        working-directory: apps/demo-web
+        run: npm install
+      - name: PASS 2 domain + regression gate
+        run: ./scripts/pass2_gate.sh
+      - name: Candidate frontend production build
+        working-directory: apps/demo-web
+        run: npm run build
